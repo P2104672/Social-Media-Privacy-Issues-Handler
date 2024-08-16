@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -13,8 +13,10 @@ const Sidebar = () => {
   // Detect mouse proximity to the left edge of the screen
   useEffect(() => {
     const handleMouseMove = (event) => {
-      if (!isOpen && event.clientX <= 50) {  // 50px from the left edge
+      if (event.clientX <= 50) {  // 50px from the left edge
         setIsOpen(true);
+      } else if (event.clientX > 250) {  // 250px is the sidebar width
+        setIsOpen(false);
       }
     };
 
@@ -22,7 +24,7 @@ const Sidebar = () => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [isOpen]);
+  }, []);
 
   return (
     <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
