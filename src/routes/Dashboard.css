@@ -1,12 +1,12 @@
-/* src/pages/Dashboard.css */
+/* src/routes/Dashboard.css */
 .dashboard-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: calc(100vh - 80px); /* 100vh minus the height of the footer */
-    padding: 20px;
-    margin-left: 250px; /* Adjust according to sidebar width */
+    min-height: calc(100vh - 80px); 
+    margin-left: 220px; 
+    text-decoration: none;
 }
 
 .dashboard-header {
@@ -30,13 +30,16 @@
     flex: 1;
     min-width: 250px;
     max-width: 300px;
+    text-decoration: none;
 }
 
 .dashboard-card h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
+    text-decoration: none;
 }
 
 .dashboard-card p {
     color: #666;
+    text-decoration: none;
 }
