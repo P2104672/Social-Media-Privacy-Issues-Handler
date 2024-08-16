@@ -1,10 +1,11 @@
-// src/pages/Profile.jsx
+// src/routes/Profile.jsx
 // import { useEffect, useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 // import { auth } from '../firebaseConfig';
 // import { fetchGoogleLinkedAccounts } from '../api/googleApi';
 import './Profile.css';
 import Sidebar from '../components/Sidebar';
+import Footer from '../components/Footer';
 const Profile = () => {
   // const [user, setUser] = useState(null);
   // const [linkedAccounts, setLinkedAccounts] = useState([]);
@@ -51,6 +52,7 @@ const Profile = () => {
         <p>Welcome user</p>
         
       </div>
+      <Footer />
     </div>
   );
 };

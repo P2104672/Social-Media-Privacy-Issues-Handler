@@ -1,21 +1,22 @@
 // src/components/Sidebar.jsx
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes, faHome, faUser, faChartBar } from '@fortawesome/free-solid-svg-icons';
 import './Sidebar.css';
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
-  // Detect mouse proximity to the left edge of the screen
   useEffect(() => {
     const handleMouseMove = (event) => {
-      if (event.clientX <= 50) {  // 50px from the left edge
+      if (event.clientX <= 20) {
         setIsOpen(true);
-      } else if (event.clientX > 250) {  // 250px is the sidebar width
+      } else if (!isOpen && event.clientX > 250) {
         setIsOpen(false);
       }
     };
@@ -24,17 +25,26 @@ const Sidebar = () => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [isOpen]);
 
   return (
     <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
       <button className="sidebar-toggle" onClick={toggleSidebar}>
-        {isOpen ? 'Hide' : 'Show'} Sidebar
+        <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
       </button>
       <nav className="sidebar-nav">
-        <Link to="/" className="sidebar-link">Home</Link>
-        <Link to="/profile" className="sidebar-link">Profile</Link>
-        <Link to="/dashboard" className="sidebar-link">Dashboard</Link>
+        <Link to="/" className="sidebar-link">
+          <FontAwesomeIcon icon={faHome} />
+          <span>Home</span>
+        </Link>
+        <Link to="/profile" className="sidebar-link">
+          <FontAwesomeIcon icon={faUser} />
+          <span>Profile</span>
+        </Link>
+        <Link to="/dashboard" className="sidebar-link">
+          <FontAwesomeIcon icon={faChartBar} />
+          <span>Dashboard</span>
+        </Link>
       </nav>
     </div>
   );
