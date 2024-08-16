@@ -1,0 +1,42 @@
+/* Navbar container styles */
+.navbar {
+    background-color: #3b3b3d;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Navbar link styles */
+.navbar-link {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.navbar-link:hover {
+    background-color: #57575a;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .navbar-container {
+        flex-direction: column;
+    }
+
+    .navbar-link {
+        margin-bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+}
