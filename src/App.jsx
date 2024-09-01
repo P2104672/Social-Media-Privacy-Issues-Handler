@@ -3,6 +3,7 @@ import './App.css'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import Login from './components/Login'
+import Logout from './components/Logout'
 import {gapi} from 'gapi-script';
 
 import { useEffect } from 'react'
@@ -14,7 +15,7 @@ function App() {
     function start() {
       gapi.client.init({
         clientId: clientId,
-        scope:" "
+        scope:""
       })}
       
     gapi.load('client: auth2', start);
@@ -25,6 +26,8 @@ function App() {
       <Sidebar />
       <h1>Homg Page</h1>
       <Login />
+      <br/>
+      <Logout />
       <Footer />
     </div>
   )
